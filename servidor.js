@@ -30,11 +30,32 @@ app.post("/cadastrar_usuario", function(req, res) {
 	//const hashedPassword = bcrypt.hash(req.body.senha, 10);
     client.db("database_CRUD").collection("usuarios").insertOne(
 		{
-		id: Date.now().toString(),	 
-		db_nome: req.body.nome, 
-		db_login: req.body.login, 
-		db_senha: req.body.senha }, 
-		//db_senha: hashedPassword }, 
+		// id: Date.now().toString(),	 
+		// db_nome: req.body.nome, 
+		// db_login: req.body.login, 
+		// db_senha: req.body.senha }, 
+		
+    nome_completo:{
+      db_nome: req.body.nome,
+      db_sobrenome: req.body.sobrenome
+    },
+    email: req.body.email,
+    senha: req.body.senha,
+    cpf: req.body.cpf,
+    nascimento: req.body.nascimento,
+    endereco:{
+      pais: req.body.pais,
+      estado: req.body.estado,
+      cidade: req.body.cidade,
+      cep: req.body.cep,
+      rua: req.body.rua,
+      numero: req.body.numero,
+      complemento: req.body.complemento,
+    },
+    contato: req.body.contato},
+    
+    
+    //db_senha: hashedPassword }, 
 		function (err, items) {
 			if (err) {
 			res.render('login', {resposta: "Erro ao cadastrar usuário!"}) //redirectiona para o "resposta_usuario.ejs". nele, mostra a resposta
@@ -48,8 +69,8 @@ app.post("/cadastrar_usuario", function(req, res) {
  // busca um usuário no banco de dados
  app.post("/logar_usuario", function(requisicao, resposta) {
     client.db("database_CRUD").collection("usuarios").find(
-      {db_login: requisicao.body.login, 
-        db_senha: requisicao.body.senha }).toArray(function(err, items) {
+      {email: requisicao.body.email, 
+        senha: requisicao.body.senha }).toArray(function(err, items) {
         console.log(items);
 
 		// validar se logado
@@ -68,9 +89,9 @@ app.post("/cadastrar_usuario", function(req, res) {
  // atualiza senha do usuário (update)
  app.post("/atualizar_usuario", function(requisicao, resposta) {
     client.db("database_CRUD").collection("usuarios").updateOne(
-        { db_login: requisicao.body.login, 
-          db_senha: requisicao.body.senha },
-        { $set: {db_senha: requisicao.body.novasenha} }, function (err, result) {
+        { email: requisicao.body.email, 
+          senha: requisicao.body.senha },
+        { $set: {senha: requisicao.body.novasenha} }, function (err, result) {
           console.log(result);
           if (result.modifiedCount == 0) {
             resposta.render('home', {resposta: "Usuário/senha não encontrado!"})
@@ -86,8 +107,8 @@ app.post("/cadastrar_usuario", function(req, res) {
  // remover o usuário (delete)
  app.post("/remover_usuario", function(requisicao, resposta) {
     client.db("database_CRUD").collection("usuarios").deleteOne(
-      { db_login: requisicao.body.login, 
-        db_senha: requisicao.body.senha } , function (err, result) {
+      { email: requisicao.body.email, 
+        senha: requisicao.body.senha } , function (err, result) {
         console.log(result);
         if (result.deletedCount == 0) {
           resposta.render('home', {resposta: "Usuário/senha não encontrado!"})
@@ -115,7 +136,7 @@ app.post("/cadastrar_usuario", function(req, res) {
 
 //url localhost/ redireciona para o formulario.html
 app.get("/", function(req, res){
-    res.redirect("formulario.html")
+    res.redirect("cadastro")
 });
 
 app.get("/login", (req, res) =>{

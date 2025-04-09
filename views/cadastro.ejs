@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="cadastro.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+
+    <div id="form">
+
+        <div id="header">
+
+            <header>
+                <h3></h3>
+                <h2>Cadastro</h2> 
+                <!-- icone modo escuro/claro -->
+
+                <i id="icone"class="fa-solid fa-sun"></i>    
+            </header>
+        </div>
+            
+
+        <footer>
+
+
+            <div id="coluna1">
+                <%=resposta%>  
+                
+                <form action="cadastrar_usuario" method="post">
+                    <i id="icone_input" class="fa-solid fa-user"></i> 
+                    Nome<input type="text" name="nome">
+                    Sobrenome<input type="text" name="sobrenome">
+                    <i id="icone_input" class="fa-solid fa-envelope"></i>
+                    Email<input type="text" name="email">
+                    <i id="icone_input" class="fa-solid fa-key"></i>
+                    Senha<input type="password" name="senha">
+                    <i id="icone_input" class="fa-solid fa-id-card"></i> 
+                    CPF<input type="text" name="cpf">
+                    <i id="icone_input" class="fa-solid fa-calendar-days"></i>
+                    Data de Nascimento<input type="date" name="nascimento">
+                    
+            </div>
+
+            <div class="linha">
+                
+            </div>
+                
+            <div id="coluna2">
+                    <i id="icone_input" class="fa-solid fa-location-dot"></i>
+                    
+                    País<input type="text" name="pais">
+                    Estado<input type="text" name="estado">
+                    Cidade<input type="text" name="cidade">
+                    CEP<input type="text" name="cep">
+                    Rua<input type="text" name="rua">
+                    Número<input type="text" name="numero">
+                    Complemento<input type="text" name="complemento">
+                    <!-- <input type="submit" value="cadastrar"> -->
+                    
+                </div>
+                
+            </footer>
+            
+                <input id="botao" type="submit" value="Cadastrar"> 
+                <div id="submit">                
+                    Já possui conta? <a href="/login">Login</a>
+                    <br>
+                </div>
+
+                </form>
+
+
+        </div>
+    </div>
+        
+
+    <!-- icone modo escuro/claro -->
+    <!-- <div id="form">
+
+        <%=resposta%>
+
+        <div id=header>
+            <h1>Cadastro</h1>
+            
+            <i id="icone"class="fa-solid fa-sun"></i>
+        </div>
+
+        <div id="inputs">
+            <form action="cadastrar_usuario" method="post">
+
+            <div id="divisao_cadastro">
+                <div id="nome_completo">
+                    <div id="input">
+                        <i id="icone_input" class="fa-solid fa-user"></i> 
+                        Nome completo
+                        <br>
+                        Nome
+                        <input type="text" name="nome" placeholder="nome">
+                        <br>
+                        <div id="input_multivalorado">
+
+                            Sobrenome
+                            <input type="text" name="sobrenome">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="email">
+                    <i id="icone_input" class="fa-solid fa-envelope"></i>
+                    Email
+                    <input type="email" name="email">
+                </div>
+                
+                <div id="senha">
+                    <i id="icone_input" class="fa-solid fa-key"></i>
+                    Senha
+                    <input type="password" name="senha">
+                </div>
+
+                <div id="cpf">
+                    <i id="icone_input" class="fa-solid fa-id-card"></i>
+                    CPF
+                    <input type="text" name="cpf">
+                </div>
+
+                <div id="nascimento">
+                    <i id="icone_input" class="fa-solid fa-calendar-days"></i>
+                    Nascimento
+                    <input type="date" name = "nascimento">
+                </div>
+
+                <div id="contato">
+                    <i id="icone_input" class="fa-solid fa-phone"></i>
+                    Contato
+                    <input type="text" name="contato">   
+                </div>
+
+            </div>
+
+                <div id="divisao_cadastro">
+                    <div id="endereco">
+                        <i id="icone_input" class="fa-solid fa-location-dot"></i>
+                        Endereço
+                        <div id="input_multivalorado">
+                            
+                            País:<input type="text" name="pais" >
+                            <br>
+                            Estado:<input type="text" name="estado">
+                            <br>
+                            Cidade:<input type="text" name="cidade">
+                            <br>
+                            CEP:<input type="text" name="cep">
+                            <br>
+                            Rua:<input type="text" name="rua">
+                            <br>                    
+                            Número: <input type="text" name="numero">
+                            <br>
+                            Complemento: <input type="text" name="complemento">
+                            
+                        </div>
+                    </div>
+                </div>
+                    
+
+                <div>
+                    <input id="botao" type="submit" value="Cadastrar"> 
+                    <input type="submit" value="cadastrar">
+                </div>
+
+            </form>
+
+        </div>
+
+        Já possui conta? <a href="/login">Login</a>
+        <br>
+        <a href="/home">home</a>
+
+    </div> -->
+
+
+
+
+
+</body>
+<script src="cadastro.js" type="text/javascript"></script>
+</html>
